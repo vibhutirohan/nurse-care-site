@@ -34,3 +34,40 @@ This project provides a clean, professional presentation of Linette’s healthca
 
 ## 🖥️ Project Structure
 
+nurse-care-site/
+├── src/
+│ ├── components/ # Reusable UI components (Navbar, Layout, ContactForm, etc.)
+│ ├── pages/ # Page-level React components (Home, About, Contact)
+│ ├── assets/ # Images, icons, and static media
+│ ├── App.tsx # App root and routing
+│ └── main.tsx # React entry point
+├── index.html # Root HTML template
+├── tsconfig.json # TypeScript configuration
+├── tailwind.config.js # Tailwind theme configuration
+├── package.json # Dependencies & scripts
+└── README.md # Project documentation
+
+
+---
+
+## ⚙️ Local Setup
+
+To run the project locally:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/vibhutirohan/nurse-care-site.git
+
+# 2. Navigate into the folder
+cd nurse-care-site
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
+
+# 5. Open your browser
+# Visit http://localhost:5173
+
+
