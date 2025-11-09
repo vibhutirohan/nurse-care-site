@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# 🩺 Linette Nurse Care — In-Home Medical Care Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive website built for **Linette Nurse**, a healthcare professional with 20+ years of nursing experience in pediatric, mental health, and chronic illness care.  
+The site is designed to help patients and families across **Connecticut** discover professional in-home medical care services, request consultations, and connect directly.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Live Demo
+👉 [View Website on Vercel]- 
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🧭 Overview
+This project provides a clean, professional presentation of Linette’s healthcare services with:
+- **Compassionate design** focused on accessibility and clarity  
+- **Service pages** for post-operative support, chronic illness care, and wellness checks  
+- **Contact form** for booking free 15-minute consultations  
+- **Mobile-friendly layout** with flexible scheduling and clear call-to-actions  
+- **Scalable structure** for future integration (e.g., WhatsApp alerts or Airtable lead storage)
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧩 Tech Stack
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+| Category | Technologies Used |
+|-----------|-------------------|
+| **Frontend** | React 18, Vite, TypeScript |
+| **Styling** | Tailwind CSS |
+| **Deployment** | Vercel |
+| **Version Control** | Git & GitHub |
+| **(Future Optional Integrations)** | Formspree / WhatsApp Cloud API / Airtable |
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 🖥️ Project Structure
+
