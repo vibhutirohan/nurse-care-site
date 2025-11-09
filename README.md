@@ -32,23 +32,7 @@ This project provides a clean, professional presentation of Linette’s healthca
 
 ---
 
-## 🖥️ Project Structure
 
-nurse-care-site/
-├── src/
-│ ├── components/ # Reusable UI components (Navbar, Layout, ContactForm, etc.)
-│ ├── pages/ # Page-level React components (Home, About, Contact)
-│ ├── assets/ # Images, icons, and static media
-│ ├── App.tsx # App root and routing
-│ └── main.tsx # React entry point
-├── index.html # Root HTML template
-├── tsconfig.json # TypeScript configuration
-├── tailwind.config.js # Tailwind theme configuration
-├── package.json # Dependencies & scripts
-└── README.md # Project documentation
-
-
----
 
 ## ⚙️ Local Setup
 
