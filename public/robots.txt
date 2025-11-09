@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://linette-nurse.netlify.app/sitemap.xml
