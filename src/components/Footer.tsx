@@ -10,7 +10,7 @@ function Footer() {
             <h3 className="text-lg font-semibold mb-4 font-serif">Contact</h3>
             <div className="space-y-2 text-gray-300">
               <p>Phone: <a href="tel:4758378323" className="hover:text-white transition-colors">(475) 837-8323</a></p>
-              <p>Email: <a href="mailto:pdn@gmail.com" className="hover:text-white transition-colors">pdn@gmail.com</a></p>
+              <p>Email: <a href="mailto:pdn@gmail.com" className="hover:text-white transition-colors">Nursenettiepdn@gmail.com</a></p>
               <p>Area Served: All Over Connecticut , United States</p>
             </div>
           </div>
@@ -28,7 +28,7 @@ function Footer() {
               <Link to="/chronic-care" className="block text-gray-300 hover:text-white transition-colors">Chronic Care</Link>
               <Link to="/wellness-checks" className="block text-gray-300 hover:text-white transition-colors">Wellness Checks</Link>
               <Link to="/about" className="block text-gray-300 hover:text-white transition-colors">About Linette</Link>
-              <Link to="/pricing" className="block text-gray-300 hover:text-white transition-colors">Pricing & Insurance</Link>
+              <Link to="/pricing" className="block text-gray-300 hover:text-white transition-colors">Pricing</Link>
               <Link to="/faq" className="block text-gray-300 hover:text-white transition-colors">FAQs</Link>
               
             </div>

@@ -198,46 +198,7 @@ function WellnessChecks() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg text-center">
-              <div className="text-4xl mb-4">☀️</div>
-              <h3 className="text-xl font-semibold text-[#2B2B2B] mb-4 font-serif">
-                Daytime Visits
-              </h3>
-              <p className="text-[#6C6C6C] mb-4">
-                Regular business hours for routine wellness checks and assessments.
-              </p>
-              <div className="text-sm text-[#8B2E2E] font-medium">
-                Monday - Friday, 8 AM - 5 PM
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg text-center">
-              <div className="text-4xl mb-4">🌅</div>
-              <h3 className="text-xl font-semibold text-[#2B2B2B] mb-4 font-serif">
-                Evening Hours
-              </h3>
-              <p className="text-[#6C6C6C] mb-4">
-                After-work and after-school appointments for busy families.
-              </p>
-              <div className="text-sm text-[#8B2E2E] font-medium">
-                Weekday evenings available
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg text-center">
-              <div className="text-4xl mb-4">📅</div>
-              <h3 className="text-xl font-semibold text-[#2B2B2B] mb-4 font-serif">
-                Regular Schedule
-              </h3>
-              <p className="text-[#6C6C6C] mb-4">
-                Weekly, bi-weekly, or monthly visits based on your needs.
-              </p>
-              <div className="text-sm text-[#8B2E2E] font-medium">
-                Customized frequency
-              </div>
-            </div>
-          </div>
+          
         </div>
       </section>
 

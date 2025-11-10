@@ -11,7 +11,7 @@ function Header() {
     { name: 'Chronic Care', href: '/chronic-care' },
     { name: 'Wellness Checks', href: '/wellness-checks' },
     { name: 'About', href: '/about' },
-    { name: 'Pricing/Insurance', href: '/pricing' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'FAQs', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -23,7 +23,7 @@ function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold text-[#8B2E2E] font-serif">
-              Linette Nurse
+              Nurse Nettie
             </span>
           </Link>
 

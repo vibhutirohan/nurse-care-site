@@ -88,7 +88,7 @@ function Home() {
                 <div className="bg-white rounded-xl p-8 text-center">
                   <div className="text-6xl mb-4">👩‍⚕️</div>
                   <h3 className="text-xl font-semibold text-[#2B2B2B] mb-2">20+ Years Experience</h3>
-                  <p className="text-[#6C6C6C]">Trusted healthcare professional serving families across Northern Michigan</p>
+                  <p className="text-[#6C6C6C]">Trusted healthcare professional serving families across Connecticut</p>
                 </div>
               </div>
             </div>

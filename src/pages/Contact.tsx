@@ -56,7 +56,7 @@ function Contact() {
                     <h3 className="text-lg font-semibold text-[#2B2B2B] mb-2">Email</h3>
                     <p className="text-[#6C6C6C] mb-2">
                       <a href="mailto:linette@example.com" className="hover:text-[#8B2E2E] transition-colors">
-                        pdn@gmail.com
+                        Nursenettiepdn@gmail.com
                       </a>
                     </p>
                     <p className="text-sm text-[#6C6C6C]">For non-urgent inquiries and scheduling</p>
