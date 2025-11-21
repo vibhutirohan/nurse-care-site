@@ -45,7 +45,7 @@ function Services() {
               Comprehensive In-Home Care Services
             </h1>
             <p className="text-xl text-[#6C6C6C] max-w-3xl mx-auto mb-8">
-              Professional nursing care tailored to your unique needs, delivered in the comfort of your home with flexibility and compassion.
+              Professional nursing care tailored to meet your unique needs, values and preferences.
             </p>
             <Link
               to="/contact"
@@ -98,7 +98,7 @@ function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2B2B2B] mb-4 font-serif">
-              Why Choose Linette Nurse
+              Why Choose Nurse Nettie
             </h2>
             <p className="text-xl text-[#6C6C6C]">
               Experience, expertise, and compassionate care you can trust

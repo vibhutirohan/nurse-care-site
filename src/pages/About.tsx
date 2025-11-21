@@ -56,7 +56,7 @@ function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] mb-6 font-serif">
-                Meet Linette
+                 Nurse Nettie
               </h1>
               <p className="text-xl text-[#6C6C6C] mb-8 leading-relaxed">
                 Healthcare professional with over 20 years of nursing experience in pediatric, mental health, and chronic illness care. Dedicated to empowering families through compassionate, at-home medical support.

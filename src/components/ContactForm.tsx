@@ -1,31 +1,65 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    preferredTime: '',
+    preferred_time: '',
     message: '',
-    consent: false
+    consent: false,
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState('');
+
+  // HANDLE FIELD CHANGES (TS Safe)
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value, type } = e.target;
-    setFormData(prev => ({
+
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+      [name]: type === 'checkbox'
+        ? (e.target as HTMLInputElement).checked
+        : value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // HANDLE SUBMIT
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real application, you would send this data to your backend
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    setStatus('Sending...');
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSubmitted(true);
+      setStatus('Message sent successfully ✅');
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        preferred_time: '',
+        message: '',
+        consent: false,
+      });
+
+    } catch (error) {
+      setStatus('Something went wrong ❌ Please try again.');
+    }
   };
 
+  // SUCCESS MESSAGE
   if (isSubmitted) {
     return (
       <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
@@ -46,128 +80,118 @@ function ContactForm() {
     );
   }
 
+  // MAIN FORM
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-lg">
       <h3 className="text-2xl font-bold text-[#2B2B2B] mb-6 font-serif text-center">
-        Book Your Free 15-Minute Consultation
+        Book Your Free 15-Minute Consultation – We'll Call You Back
       </h3>
-      
+
       <div className="space-y-6">
+
+        {/* NAME */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-[#2B2B2B] mb-2">
-            Full Name *
-          </label>
+          <label className="block text-sm font-medium mb-2">Full Name *</label>
           <input
             type="text"
-            id="name"
             name="name"
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2E2E] focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border rounded-lg"
             placeholder="Enter your full name"
           />
         </div>
 
+        {/* EMAIL */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-[#2B2B2B] mb-2">
-            Email Address *
-          </label>
+          <label className="block text-sm font-medium mb-2">Email *</label>
           <input
             type="email"
-            id="email"
             name="email"
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2E2E] focus:border-transparent transition-colors"
-            placeholder="Enter your email address"
+            className="w-full px-4 py-3 border rounded-lg"
+            placeholder="Enter your email"
           />
         </div>
 
+        {/* PHONE */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-[#2B2B2B] mb-2">
-            Phone Number *
-          </label>
+          <label className="block text-sm font-medium mb-2">Phone *</label>
           <input
             type="tel"
-            id="phone"
             name="phone"
             required
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2E2E] focus:border-transparent transition-colors"
-            placeholder="(123) 456-7890"
+            className="w-full px-4 py-3 border rounded-lg"
+            placeholder="Enter your phone number"
           />
         </div>
 
+        {/* TIME SLOT */}
         <div>
-          <label htmlFor="preferredTime" className="block text-sm font-medium text-[#2B2B2B] mb-2">
-            Preferred Visit Time
+          <label className="block text-sm font-medium mb-2">
+            Preferred Consultation Time *
           </label>
           <select
-            id="preferredTime"
-            name="preferredTime"
-            value={formData.preferredTime}
+            name="preferred_time"
+            required
+            value={formData.preferred_time}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2E2E] focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border rounded-lg"
           >
             <option value="">Select preferred time</option>
-            <option value="morning">Morning (8 AM - 12 PM)</option>
-            <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-            <option value="evening">Evening (5 PM - 8 PM)</option>
-            <option value="overnight">Overnight Care</option>
-            <option value="flexible">Flexible</option>
+            <option>Morning (8 AM – 12 PM)</option>
+            <option>Afternoon (12 PM – 5 PM)</option>
+            <option>Evening (5 PM – 8 PM)</option>
+            <option>Flexible</option>
           </select>
         </div>
 
+        {/* MESSAGE (Required 🟥) */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-[#2B2B2B] mb-2">
-            Brief Message (Non-sensitive information only)
-          </label>
+          <label className="block text-sm font-medium mb-2">Message *</label>
           <textarea
-            id="message"
             name="message"
             rows={4}
+            required
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2E2E] focus:border-transparent transition-colors resize-none"
-            placeholder="Tell us briefly about your care needs or any questions you have..."
+            className="w-full px-4 py-3 border rounded-lg"
+            placeholder="Please describe your request or any specific needs."
           />
-          <p className="text-xs text-[#6C6C6C] mt-2">
-            Please do not include personal health details in this form.
-          </p>
         </div>
 
-        <div className="flex items-start space-x-3">
+        {/* CONSENT */}
+        <div className="flex items-start gap-2">
           <input
             type="checkbox"
-            id="consent"
             name="consent"
             required
             checked={formData.consent}
             onChange={handleChange}
-            className="mt-1 w-4 h-4 text-[#8B2E2E] border-gray-300 rounded focus:ring-[#8B2E2E]"
           />
-          <label htmlFor="consent" className="text-sm text-[#6C6C6C]">
-            I agree to be contacted by Linette Nurse regarding my inquiry. *
-          </label>
+          <span className="text-sm text-gray-600">
+            I agree to be contacted by Linette Nurse regarding my inquiry.
+          </span>
         </div>
 
+        {/* SUBMIT */}
         <button
           type="submit"
           disabled={!formData.consent}
-          className="w-full bg-[#8B2E2E] text-white py-4 px-6 rounded-lg font-semibold hover:bg-[#B85C5C] transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="w-full bg-[#8B2E2E] text-white py-3 rounded-lg font-semibold"
         >
           Schedule Free Consultation
         </button>
-      </div>
 
-      <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-        <p className="text-sm text-red-700 text-center">
-          <strong>⚠️ For emergencies, call 911</strong><br />
-          This form is not monitored 24/7. For urgent medical needs, contact emergency services immediately.
-        </p>
+        {/* STATUS MESSAGE */}
+        {status && (
+          <p className="text-center font-medium mt-3">{status}</p>
+        )}
       </div>
     </form>
   );
