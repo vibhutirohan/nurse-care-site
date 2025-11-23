@@ -29,7 +29,7 @@ function Footer() {
               <Link to="/wellness-checks" className="block text-gray-300 hover:text-white transition-colors">Wellness Checks</Link>
               <Link to="/about" className="block text-gray-300 hover:text-white transition-colors">About Linette</Link>
               <Link to="/pricing" className="block text-gray-300 hover:text-white transition-colors">Pricing</Link>
-              <Link to="/faq" className="block text-gray-300 hover:text-white transition-colors">FAQs</Link>
+              
               
             </div>
           </div>

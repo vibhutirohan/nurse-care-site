@@ -12,7 +12,7 @@ function Header() {
     { name: 'Wellness Checks', href: '/wellness-checks' },
     { name: 'About', href: '/about' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'FAQs', href: '/faq' },
+  
     { name: 'Contact', href: '/contact' },
   ];
 
