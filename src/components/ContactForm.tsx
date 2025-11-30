@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 function ContactForm() {
+
+ const GOOGLE_FORM_LINK =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfqmAo7sctthXTDaxM6u4TKFSTF8ul3StYnNqVHK8PCACCB2A/viewform?usp=sharing";
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,10 +15,6 @@ function ContactForm() {
     consent: false,
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [status, setStatus] = useState('');
-
-  // HANDLE FIELD CHANGES (TS Safe)
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -28,61 +28,9 @@ function ContactForm() {
     }));
   };
 
-  // HANDLE SUBMIT
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('Sending...');
-
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-
-      setIsSubmitted(true);
-      setStatus('Message sent successfully ✅');
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        preferred_time: '',
-        message: '',
-        consent: false,
-      });
-
-    } catch (error) {
-      setStatus('Something went wrong ❌ Please try again.');
-    }
-  };
-
-  // SUCCESS MESSAGE
-  if (isSubmitted) {
-    return (
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-        <div className="text-4xl mb-4">✅</div>
-        <h3 className="text-2xl font-bold text-green-800 mb-4 font-serif">
-          Thank You!
-        </h3>
-        <p className="text-green-700 mb-6">
-          We'll contact you soon to confirm your free 15-minute consultation.
-        </p>
-        <button
-          onClick={() => setIsSubmitted(false)}
-          className="text-green-600 hover:text-green-800 font-medium"
-        >
-          Submit Another Request
-        </button>
-      </div>
-    );
-  }
-
-  // MAIN FORM
+  // MAIN FORM (now redirects instead of submitting)
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-lg">
+    <div className="bg-white rounded-2xl p-8 shadow-lg">
       <h3 className="text-2xl font-bold text-[#2B2B2B] mb-6 font-serif text-center">
         Book Your Free 15-Minute Consultation – We'll Call You Back
       </h3>
@@ -151,7 +99,7 @@ function ContactForm() {
           </select>
         </div>
 
-        {/* MESSAGE (Required 🟥) */}
+        {/* MESSAGE */}
         <div>
           <label className="block text-sm font-medium mb-2">Message *</label>
           <textarea
@@ -179,21 +127,25 @@ function ContactForm() {
           </span>
         </div>
 
-        {/* SUBMIT */}
-        <button
-          type="submit"
-          disabled={!formData.consent}
-          className="w-full bg-[#8B2E2E] text-white py-3 rounded-lg font-semibold"
+        {/* REDIRECT BUTTON (instead of submit) */}
+        <a
+          href={GOOGLE_FORM_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full block text-center bg-[#8B2E2E] text-white py-3 rounded-lg font-semibold ${
+            !formData.consent ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          onClick={(e) => {
+            if (!formData.consent) {
+              e.preventDefault();
+            }
+          }}
         >
-          Schedule Free Consultation
-        </button>
+          Fill Google Consultation Form
+        </a>
 
-        {/* STATUS MESSAGE */}
-        {status && (
-          <p className="text-center font-medium mt-3">{status}</p>
-        )}
       </div>
-    </form>
+    </div>
   );
 }
 

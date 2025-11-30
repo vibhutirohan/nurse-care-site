@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import ContactForm from '../components/ContactForm';
 
 function Contact() {
   const [currentTime, setCurrentTime] = useState('');
@@ -39,7 +38,7 @@ function Contact() {
               Ready to discuss your care needs? Schedule your free 15-minute consultation to learn how our in-home nursing services can support you and your family.
             </p>
 
-            {/* ✅ LIVE TIMESTAMP */}
+            {/* LIVE TIMESTAMP */}
             <p className="text-sm text-[#6C6C6C] mt-2">
               🕒: <span className="font-semibold">{currentTime}</span>
             </p>
@@ -106,9 +105,24 @@ function Contact() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div>
-              <ContactForm />
+            {/* Google Form Button Instead of Form */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg flex flex-col justify-center items-center">
+              <h3 className="text-2xl font-bold text-[#2B2B2B] mb-6 font-serif text-center">
+                Book Your Free 15-Minute Consultation
+              </h3>
+
+              <p className="text-gray-600 mb-8 text-center max-w-md">
+                Click the button below to fill out our secure consultation form. We will contact you shortly.
+              </p>
+
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfqmAo7sctthXTDaxM6u4TKFSTF8ul3StYnNqVHK8PCACCB2A/viewform?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#8B2E2E] hover:bg-[#B85C5C] transition text-white font-semibold py-3 px-6 rounded-lg shadow-lg text-center w-full"
+              >
+                Fill Out Consultation Form
+              </a>
             </div>
 
           </div>
