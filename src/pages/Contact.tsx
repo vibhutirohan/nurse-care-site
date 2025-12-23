@@ -116,7 +116,7 @@ function Contact() {
               </p>
 
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfqmAo7sctthXTDaxM6u4TKFSTF8ul3StYnNqVHK8PCACCB2A/viewform?usp=sharing"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeP9450CopPuAvjWDjnxvlrW7VLPDJph1ccUTIPbfCt13qw5A/viewform?usp=sharing&ouid=114433544863271744495"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#8B2E2E] hover:bg-[#B85C5C] transition text-white font-semibold py-3 px-6 rounded-lg shadow-lg text-center w-full"
